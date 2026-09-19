@@ -4,6 +4,7 @@ export interface SedanBlueprint {
   height: number
   hoodLength: number
   cabinLength: number
+  cabinCenterX: number
   wheelbase: number
   doors: number[]
   branding: 'none'
@@ -13,13 +14,14 @@ export interface SedanBlueprint {
 
 export function createSedanBlueprint(): SedanBlueprint {
   return {
-    length: 6.35,
-    width: 2.04,
-    height: 1.38,
-    hoodLength: 1.72,
-    cabinLength: 2.28,
-    wheelbase: 3.76,
-    doors: [-1.45, -0.45, 0.45, 1.45],
+    length: 6.42,
+    width: 2.06,
+    height: 1.35,
+    hoodLength: 1.92,
+    cabinLength: 2.3,
+    cabinCenterX: -0.58,
+    wheelbase: 3.86,
+    doors: [-1.54, -0.52, 0.52, 1.52],
     branding: 'none',
     frontGrilleSlats: 2,
     rearQuarterWindowKink: true,
