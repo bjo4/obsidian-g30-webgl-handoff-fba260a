@@ -24,3 +24,4 @@ python3 -m http.server 8787 -d dist
 
 - Procedural stylized mesh only.
 - No official BMW mesh, CAD, CDN asset, or logo artwork.
+- Geometric cues are non-branded: long-wheelbase black sedan proportions, rear-set low cabin, long hood, twin vertical grille apertures without badge art, Hofmeister-style rear side-window kink, horizontal shoulder/lower creases, slim wraparound headlights, L-shaped tail lights, smoked side glass with dark chrome trim, and filled multi-spoke low-profile wheels.
