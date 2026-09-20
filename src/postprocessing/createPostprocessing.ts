@@ -13,7 +13,7 @@ export interface PostProcessing {
 export function createPostProcessing(renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera): PostProcessing {
   const composer = new EffectComposer(renderer)
   const renderPass = new RenderPass(scene, camera)
-  const bloomPass = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.52, 0.72, 0.18)
+  const bloomPass = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.1, 0.38, 0.68)
   const outputPass = new OutputPass()
   composer.addPass(renderPass)
   composer.addPass(bloomPass)
