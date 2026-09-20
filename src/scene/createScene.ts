@@ -22,7 +22,7 @@ export class ExperienceScene {
     this.renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'high-performance' })
     this.renderer.setClearColor(0x020306, 0)
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping
-    this.renderer.toneMappingExposure = 1.05
+    this.renderer.toneMappingExposure = 0.78
     this.renderer.outputColorSpace = THREE.SRGBColorSpace
     this.renderer.shadowMap.enabled = true
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap
@@ -71,10 +71,10 @@ export class ExperienceScene {
   }
 
   private addStudio() {
-    this.scene.add(new THREE.HemisphereLight(0x4f6580, 0x030304, 1.25))
-    const key = new THREE.SpotLight(0xeff6ff, 70, 22, Math.PI * 0.19, 0.45, 1); key.position.set(2.5, 6.2, 4.7); key.castShadow = true; key.shadow.mapSize.set(1024, 1024); this.scene.add(key)
-    const rim = new THREE.SpotLight(0x5d8cff, 42, 18, Math.PI * 0.22, 0.6, 1.2); rim.position.set(-4.8, 3.2, -4.6); this.scene.add(rim)
-    const sweep = new THREE.PointLight(0x9ebcff, 2.3, 7.5); sweep.name = 'slow-light-sweep'; sweep.position.set(-1.8, 1.1, 2.3); this.scene.add(sweep)
+    this.scene.add(new THREE.HemisphereLight(0x4f6580, 0x030304, 0.9))
+    const key = new THREE.SpotLight(0xeff6ff, 24, 22, Math.PI * 0.19, 0.45, 1); key.position.set(2.5, 6.2, 4.7); key.castShadow = true; key.shadow.mapSize.set(1024, 1024); this.scene.add(key)
+    const rim = new THREE.SpotLight(0x5d8cff, 16, 18, Math.PI * 0.22, 0.6, 1.2); rim.position.set(-4.8, 3.2, -4.6); this.scene.add(rim)
+    const sweep = new THREE.PointLight(0x9ebcff, 0.8, 7.5); sweep.name = 'slow-light-sweep'; sweep.position.set(-1.8, 1.1, 2.3); this.scene.add(sweep)
     const floor = new THREE.Mesh(new THREE.CircleGeometry(9.8, 96), new THREE.MeshPhysicalMaterial({ color: '#06070a', metalness: 0.35, roughness: 0.28, clearcoat: 1, clearcoatRoughness: 0.25 })); floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; this.scene.add(floor)
     const horizon = new THREE.Mesh(new THREE.TorusGeometry(5.2, 0.012, 8, 128), new THREE.MeshBasicMaterial({ color: '#31425c', transparent: true, opacity: 0.38 })); horizon.position.y = 0.025; horizon.rotation.x = -Math.PI / 2; this.scene.add(horizon)
   }
@@ -88,7 +88,7 @@ export class ExperienceScene {
     this.car.position.y = Math.sin(elapsed * 0.42) * 0.018
     const sweep = this.scene.getObjectByName('slow-light-sweep')
     if (sweep) { sweep.position.x = Math.sin(elapsed * 0.35) * 2.8; sweep.position.z = Math.cos(elapsed * 0.25) * 2.4 }
-    this.post.bloomPass.strength = 0.45 + Math.sin(elapsed * 0.24) * 0.04
+    this.post.bloomPass.strength = 0.08 + Math.sin(elapsed * 0.24) * 0.012
     this.particles.update(elapsed)
   }
 }
